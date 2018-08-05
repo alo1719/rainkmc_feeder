@@ -1,0 +1,6 @@
+{
+  "language": "JavaScript",
+  "code": "Agent.check = function() {\r\n  if (this.options('make_event')) {\r\n    this.createEvent({ 'message': 'I made an event!' });\r\n    var callCount = this.memory('callCount') || 0;\r\n    this.memory('callCount', callCount + 1);\r\n  }\r\n};\r\n\r\nAgent.receive = function() {\r\n  var events = this.incomingEvents();\r\n  for(var i = 0; i < events.length; i++) {\r\n    if (events[i].payload.date > '2017-05-31') {\r\n      //this.createEvent({ 'message':  typeof events[i].payload.date});\r\n      //result: string\r\n      //events[i].payload.date = events[i].payload.date.replace(/&nbsp;|\\s/g, \"\");\r\n      this.createEvent({ 'message': 'get a message later than 2017-05-31', 'event': events[i].payload });\r\n    }\r\n    if (events[i].payload.date[0] == '1') {\r\n      //this.createEvent({ 'message':  typeof events[i].payload.date});\r\n      //result: string\r\n      //events[i].payload.date = events[i].payload.date.replace(/&nbsp;|\\s/g, \"\");\r\n      this.createEvent({ 'message': 'get a message later than 2017-05-31', 'event': events[i].payload });\r\n    }\r\n  }\r\n}",
+  "expected_receive_period_in_days": "6",
+  "expected_update_period_in_days": "6"
+}

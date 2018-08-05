@@ -1,0 +1,26 @@
+{
+    "expected_update_period_in_days": "6",
+    "url": "http://[[your server ip]]/rainkmc/rainkmc.html",
+    "type": "html",
+    "mode": "on_change",
+    "extract": {
+      "url": {
+        "value": "concat('https://rainkmc.com/',@href)",
+        "xpath": "//*[starts-with(@id,\"normalthread\")]/tr/th/a[2]"
+      },
+      "title": {
+        "value": "normalize-space(.)",
+        "xpath": "//*[starts-with(@id,\"normalthread\")]/tr/th/a[2]"
+      },
+      "date": {
+        "xpath": "//*[starts-with(@id,\"normalthread\")]/tr/td[2]/em/span",
+        "value": "normalize-space(.)",
+        "hidden": "true"
+      }
+    },
+    "template": {
+      "url": "{{url}}",
+      "title": "{{title}}",
+      "date": "{{date}}"
+    }
+  }

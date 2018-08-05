@@ -1,0 +1,15 @@
+{
+  "secrets": [
+    "rainkmc"
+  ],
+  "expected_receive_period_in_days": "6",
+  "template": {
+    "title": "雨中小町",
+    "description": "雨中小町自抓",
+    "item": {
+      "title": "{{event.title}}",
+      "description": "{{event.date}}",
+      "link": "{{event.url}}"
+    }
+  }
+}
