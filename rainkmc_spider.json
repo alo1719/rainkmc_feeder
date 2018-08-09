@@ -15,7 +15,6 @@
       "date": {
         "xpath": "//*[starts-with(@id,\"normalthread\")]/tr/td[2]/em/span",
         "value": "normalize-space(.)",
-        "hidden": "true"
       }
     },
     "template": {
