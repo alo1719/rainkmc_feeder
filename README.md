@@ -14,17 +14,21 @@
 
 2. 在页面抓取完后使用Huginn生成rss订阅源。
 
-   Huginn生成订阅源分为3个步骤：
+   Huginn生成订阅源分为**4**个步骤：
 
    1. 通过Xpath获取发帖内容。(rainkmc_spider.json)
 
-      使用Website Agent 
+      使用Website Agent
 
-   2. 通过选择器选择自己感兴趣的内容，通过javascript实现，可自定义规则。(rainkmc_selector.json)
+   2. 根据URL属性对获取到的Event进行去重。(rainkmc_dedup.json)
+
+      使用De Duplication Agent
+
+   3. 通过选择器选择自己感兴趣的内容，通过javascript实现，可自定义规则。(rainkmc_selector.json)
 
       使用Java Script Agent 
 
-   3. 生成.xml页面。(rainkmc_out.json)
+   4. 生成.xml页面。(rainkmc_out.json)
 
       使用Data Output Agent 
 
