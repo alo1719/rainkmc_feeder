@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 import webbrowser
+import time
+import codecs
 
 data = {
     'fastloginfield': 'username',
@@ -12,5 +14,10 @@ data = {
 r = requests.post('https://rainkmc.com/member.php?mod=logging&action=login&loginsubmit=yes&infloat=yes&lssubmit=yes&inajax=1', data=data)
 
 r = requests.get('https://rainkmc.com/forum.php?mod=forumdisplay&fid=42', cookies=r.cookies)
-with open("rainkmc.html", 'w') as f:
-    f.write(r.text)
+f = codecs.open('rainkmc.html', 'w', 'gbk')
+f.write(r.text)
+f.close()
+
+time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+with open("rainkmc_log.txt", "a+") as f:
+    f.write(time_str + "\n")
